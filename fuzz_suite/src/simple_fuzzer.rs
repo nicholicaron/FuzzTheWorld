@@ -149,6 +149,47 @@ impl Fuzzer for RandomFuzzer {
     }
 }
 
+/// # Examples
+/// 
+/// ## Using with the `cat` command:
+/// ```no_run
+/// use fuzz_suite::{RandomFuzzer, ProgramRunner, Fuzzer};
+/// 
+/// // Create a fuzzer for generating random ASCII strings
+/// let fuzzer = RandomFuzzer::new(10, 100, 32, 95); // Printable ASCII range
+/// 
+/// // Create a runner for the 'cat' command
+/// let cat_runner = ProgramRunner::new("cat");
+/// 
+/// // Run the fuzzer 5 times
+/// let results = fuzzer.runs(&cat_runner, 5);
+/// for (i, (_, outcome)) in results.iter().enumerate() {
+///     println!("Run {}: {:?}", i + 1, outcome);
+/// }
+/// ```
+///
+/// ## Using with the `bc` command for basic calculator testing:
+/// ```no_run
+/// use fuzz_suite::{RandomFuzzer, ProgramRunner, Fuzzer};
+/// 
+/// // Create a fuzzer specifically for generating calculator-like inputs
+/// let fuzzer = RandomFuzzer::new(
+///     5,     // min length
+///     20,    // max length
+///     40,    // starts at '(' character
+///     7      // range includes ()+-*/
+/// );
+/// 
+/// // Create a runner for the 'bc' command
+/// let bc_runner = ProgramRunner::new("bc");
+/// 
+/// // Run the fuzzer 10 times
+/// let results = fuzzer.runs(&bc_runner, 10);
+/// for (i, (_, outcome)) in results.iter().enumerate() {
+///     println!("Run {}: {:?}", i + 1, outcome);
+/// }
+/// ```
+///
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -184,4 +225,31 @@ mod tests {
         let results = fuzzer.runs(&runner, 5);
         assert_eq!(results.len(), 5);
     }
+
+    #[test]
+    #[cfg(target_family = "unix")]
+    fn test_cat_program_runner() {
+        use std::process::Output;
+        
+        let fuzzer = RandomFuzzer::new(10, 20, 32, 95);
+        let runner = ProgramRunner::new("cat");
+        let (result, outcome) = fuzzer.run(&runner);
+        
+        // Verify we got an Output type back
+        assert!(result.downcast_ref::<Output>().is_some());
+    }
+
+    #[test]
+    #[cfg(target_family = "unix")]
+    fn test_bc_program_runner() {
+        use std::process::Output;
+        
+        let fuzzer = RandomFuzzer::new(5, 20, 40, 7);
+        let runner = ProgramRunner::new("bc");
+        let (result, outcome) = fuzzer.run(&runner);
+        
+        // Verify we got an Output type back
+        assert!(result.downcast_ref::<Output>().is_some());
+    }
 }
+
