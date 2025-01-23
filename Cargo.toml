@@ -1,7 +1,7 @@
 [workspace]
 
 members = [
-	"ex_1_xpdf",
+	"ex_1_xpdf", "fuzz_suite",
 ]
 
 [profile.release]
