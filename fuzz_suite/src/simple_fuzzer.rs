@@ -152,7 +152,7 @@ impl Fuzzer for RandomFuzzer {
 /// # Examples
 /// 
 /// ## Using with the `cat` command:
-/// ```no_run
+/// no_run
 /// use fuzz_suite::{RandomFuzzer, ProgramRunner, Fuzzer};
 /// 
 /// // Create a fuzzer for generating random ASCII strings
@@ -166,10 +166,10 @@ impl Fuzzer for RandomFuzzer {
 /// for (i, (_, outcome)) in results.iter().enumerate() {
 ///     println!("Run {}: {:?}", i + 1, outcome);
 /// }
-/// ```
+/// 
 ///
 /// ## Using with the `bc` command for basic calculator testing:
-/// ```no_run
+/// 
 /// use fuzz_suite::{RandomFuzzer, ProgramRunner, Fuzzer};
 /// 
 /// // Create a fuzzer specifically for generating calculator-like inputs
@@ -188,7 +188,7 @@ impl Fuzzer for RandomFuzzer {
 /// for (i, (_, outcome)) in results.iter().enumerate() {
 ///     println!("Run {}: {:?}", i + 1, outcome);
 /// }
-/// ```
+/// 
 ///
 #[cfg(test)]
 mod tests {
