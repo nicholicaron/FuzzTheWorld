@@ -10,6 +10,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
+[![Unlicense License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -18,7 +19,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/fuzz.png" alt="A TV screen with static" width="80" height="80">
+    <img src="images/fuzz.jpg" alt="A TV screen with static" width="80" height="80">
   </a>
 
   <h3 align="center">FuzzTheWorld</h3>
@@ -51,6 +52,7 @@
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -92,22 +94,34 @@ platform, please adjust accordingly.
 
 ### Prerequisites
 
-* Install the Rust Toolchain
+Install Rust toolchain
+* npm
   ```sh
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs
-  ```
-* Install git, LLVM tools, and Clang
-  ```sh
-    sudo pacman -S git llvm clang
+  npm install npm@latest -g
   ```
 
 ### Installation
 
-```bash
-git clone https://github.com/nicholicaron/FuzzTheWorld.git
-cd fuzz_suite
-cargo build
-```
+_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+
+1. Get a free API Key at [https://example.com](https://example.com)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/github_username/repo_name.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Enter your API in `config.js`
+   ```js
+   const API_KEY = 'ENTER YOUR API';
+   ```
+5. Change git remote url to avoid accidental pushes to base project
+   ```sh
+   git remote set-url origin github_username/repo_name
+   git remote -v # confirm the changes
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -116,39 +130,9 @@ cargo build
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Place your C/C++ program in the examples directory:
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-```
-examples/
-  your_program/
-    src/
-      main.c
-```
-
-Run the fuzzer:
-
-```bash
-cargo run
-```
-
-The fuzzer will:
-* Compile your program with coverage instrumentation
-* Generate and test random inputs
-* Track code coverage
-* Detect and save crashes
-* Generate coverage reports and visualizations
-
-## Example Output Structure
-
-```
-examples/your_program/
-├── bin/              # Compiled binaries
-├── coverage/         # Coverage data and reports
-│   ├── coverage.lcov
-│   └── coverage_over_time.png
-├── crashes/          # Crash-inducing inputs
-└── src/             # Source files
-```
+_For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -157,31 +141,15 @@ examples/your_program/
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Lexical Fuzzing
-    - [x] Basic Fuzzing 
-    - [x] Code Coverage
-    - [ ] Mutation Based Fuzzing
-    - [ ] Greybox Fuzzing
-    - [ ] Search Based Fuzzing
-    - [ ] Mutation Analysis
-- [ ] Syntactic Fuzzing
-    - [ ] Fuzzing with Grammars
-    - [ ] Efficient Grammar Fuzzing
-    - [ ] Grammar Coverage
-    - [ ] Parsing Inputs
-    - [ ] Probabilistic Grammar Fuzzing
-    - [ ] Fuzzing with Generators
-    - [ ] Greybox Grammar Fuzzing
-    - [ ] Reducing Failure-Inducing Inputs
-- [ ] Semantic Fuzzing
-    - [ ] Fuzzing with Semantic Constraints
-    - [ ] Grammar Mining
-    - [ ] Tracking Information Flow
-    - [ ] Concolic Fuzzing
-    - [ ] Symbolic Fuzzing
-    - [ ] Mining Function Specifications
-- [ ] Semantic Fuzzing
+- [x] Add Changelog
+- [x] Add back to top links
+- [ ] Add Additional Templates w/ Examples
+- [ ] Add "components" document to easily copy & paste sections of the readme
+- [ ] Multi-language Support
+    - [ ] Chinese
+    - [ ] Spanish
 
+See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -203,9 +171,18 @@ Don't forget to give the project a star! Thanks again!
 
 ### Top contributors:
 
-<a href="https://github.com/nicholicaron/FuzzTheWorld/graphs/contributors">
+<a href="https://github.com/othneildrew/Best-README-Template/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
 </a>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the Unlicense License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -234,13 +211,13 @@ Project Link: [https://github.com/nicholicaron/FuzzTheWorld](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/nicholicaron/FuzzTheWorld.svg?style=for-the-badge
 [contributors-url]: https://github.com/nicholicaron/FuzzTheWorld/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/nicholicaron/FuzzTheWorld.svg?style=for-the-badge
 [forks-url]: https://github.com/nicholicaron/FuzzTheWorld/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/nicholicaron/FuzzTheWorld.svg?style=for-the-badge
 [stars-url]: https://github.com/nicholicaron/FuzzTheWorld/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/nicholicaron/FuzzTheWorld.svg?style=for-the-badge
 [issues-url]: https://github.com/nicholicaron/FuzzTheWorld/issues
 [license-shield]: 
 [license-url]:
