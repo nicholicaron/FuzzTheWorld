@@ -17,7 +17,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/nicholicaron/FuzzTheWorld">
     <img src="images/fuzz.jpg" alt="A TV screen with static" width="240" height="240">
   </a>
 
@@ -92,34 +92,22 @@ platform, please adjust accordingly.
 
 ### Prerequisites
 
-Install Rust toolchain
-* npm
+* Install Rust Toolchain
   ```sh
-  npm install npm@latest -g
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs 
+  ```
+* Instal git, LLVM tools, Clang
+  ```sh
+  sudo pacman -S git llvm clang
   ```
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-5. Change git remote url to avoid accidental pushes to base project
-   ```sh
-   git remote set-url origin github_username/repo_name
-   git remote -v # confirm the changes
-   ```
+```bash
+git clone 
+cd fuzz_suite
+cargo build
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,9 +116,39 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Place your C/C++ program in the examples directory:
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+```
+examples/
+  your_program/
+    src/
+      main.c
+```
+
+Run the fuzzer:
+
+```bash
+cargo run
+```
+
+The fuzzer will:
+* Compile your program with coverage instrumentation
+* Generate and test random inputs
+* Track code coverage
+* Detect and save crashes
+* Generate coverage reports and visualizations
+
+## Example Output Structure
+
+```
+examples/your_program/
+├── bin/              # Compiled binaries
+├── coverage/         # Coverage data and reports
+│   ├── coverage.lcov
+│   └── coverage_over_time.png
+├── crashes/          # Crash-inducing inputs
+└── src/             # Source files
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -139,15 +157,30 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [ ] Lexical Fuzzing
+    - [x] Basic Fuzzing
+    - [x] Track Code Coverage 
+    - [ ] Mutation-Based Fuzzing
+    - [ ] Greybox Fuzzing
+    - [ ] Search-Based Fuzzing
+    - [ ] Mutation Analysis
+- [ ] Syntactic Fuzzing
+    - [ ] Grammar Fuzzing
+    - [ ] Efficient Grammar Fuzzing
+    - [ ] Systematic Grammar Coverage
+    - [ ] Parsing Inputs
+    - [ ] Probabilistic Grammar Fuzzing
+    - [ ] Fuzzing with Generators
+    - [ ] Greybox Grammar Fuzzing
+    - [ ] Reduce Failure-Inducing Inputs
+- [ ] Semantic Fuzzing
+    - [ ] Fuzzing with Constraints
+    - [ ] Grammar Mining
+    - [ ] Tracking Information Flow
+    - [ ] Concolic Fuzzing
+    - [ ] Symbolic Fuzzing
+    - [ ] Mining Function Specifications
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -169,18 +202,9 @@ Don't forget to give the project a star! Thanks again!
 
 ### Top contributors:
 
-<a href="https://github.com/othneildrew/Best-README-Template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
+<a href="https://github.com/nicholicaron/FuzzTheWorld/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=nicholicaron/FuzzTheWorld" alt="contrib.rocks image" />
 </a>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the Unlicense License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
