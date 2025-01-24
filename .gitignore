@@ -12,8 +12,8 @@ Cargo.lock
 **/*.rs.bk
 */**/*.rs.bk
 
-# MSVC Windows builds of rustc generate these, which store debugging information
-*.pdb
-
-# Remove XPDF binary
-ex_1_xpdf/xpdf/
+# Don't track example specific outputs
+fuzz_suite/examples/*/bin/
+fuzz_suite/examples/*/coverage/
+fuzz_suite/examples/*/crashes/
+fuzz_suite/examples/*/fuzz_inputs/
